@@ -43,4 +43,6 @@ npx tsc --noEmit     # typecheck
 
 Add packages with `npx expo install <package>`, not `npm install`, so the versions match the Expo SDK.
 
+For running the app on a physical phone day to day, see [docs/dev-routine.md](docs/dev-routine.md).
+
 The `ios/` and `android/` folders are generated. Don't edit them by hand; configure native behavior in `app.json` instead.
