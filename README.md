@@ -6,7 +6,7 @@ You should be able to set up a workout the first time you open the app, in under
 
 ## Status
 
-Early development. The app is an empty Expo project for now. Planning and progress are tracked in [GitHub issues](https://github.com/charliegdev/easy-interval-timer/issues).
+Early development. The app is an empty Expo project for now. Planning and progress are tracked on the [project roadmap](https://github.com/users/charliegdev/projects/1).
 
 ## Planned for v1
 
