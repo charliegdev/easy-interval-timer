@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "dependencies": {
-    "@expo/ui": "~58.0.28",
-    "expo": "~58.0.25",
+    "@expo/ui": "~58.0.29",
+    "expo": "~58.0.26",
     "expo-constants": "~58.0.16",
     "expo-dev-client": "~58.0.21",
     "expo-device": "~58.0.5",
@@ -12,12 +12,12 @@
     "expo-glass-effect": "~58.0.5",
     "expo-image": "~58.0.18",
     "expo-linking": "~58.0.17",
-    "expo-router": "~58.0.31",
+    "expo-router": "~58.0.32",
     "expo-splash-screen": "~58.0.14",
     "expo-status-bar": "~58.0.5",
     "expo-symbols": "~58.0.5",
     "expo-system-ui": "~58.0.7",
-    "expo-web-browser": "~58.0.8",
+    "expo-web-browser": "~58.1.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-native": "0.88.1",
@@ -29,11 +29,15 @@
     "react-native-worklets": "0.13.0"
   },
   "devDependencies": {
+    "@testing-library/react-native": "^14.1.0",
+    "@types/jest": "30.0.0",
     "@types/react": "~19.3.0",
     "eslint": "^9.0.0",
     "eslint-config-expo": "~58.0.4",
     "eslint-config-prettier": "^10.1.8",
     "expo-mcp": "~0.2.1",
+    "jest": "~30.5.2",
+    "jest-expo": "~58.0.15",
     "lint-staged": "^17.6.1",
     "prettier": "^3.10.1",
     "simple-git-hooks": "^2.14.0",
@@ -52,7 +56,22 @@
     "typecheck:watch": "tsc --noEmit --watch",
     "format": "prettier --write .",
     "check": "npm run format && npm run typecheck && npm run lint -- --max-warnings 0",
-    "prepare": "simple-git-hooks"
+    "prepare": "simple-git-hooks",
+    "test": "jest --watch --coverage=false --changedSince=origin/main",
+    "test:all": "jest"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx,js,jsx}",
+      "!eslint.config.js",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/expo-env.d.ts",
+      "!**/.expo/**"
+    ]
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged && npm run typecheck"
