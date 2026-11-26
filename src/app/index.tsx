@@ -8,6 +8,12 @@ enum PlayStatus {
   Stopped = "Stopped",
 }
 
+const statusLabel = {
+  [PlayStatus.Stopped]: "Ready",
+  [PlayStatus.Playing]: "Running",
+  [PlayStatus.Paused]: "Paused",
+};
+
 const platformName = Platform.select({
   ios: "iOS",
   android: "Android",
@@ -21,6 +27,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.status}>{statusLabel[playStatus]}</Text>
       <View style={styles.shadow}>
         <Pressable
           accessibilityRole="button"
@@ -78,7 +85,6 @@ export default function HomeScreen() {
           />
         </Pressable>
       </View>
-      <Text>{playStatus}</Text>
     </View>
   );
 }
@@ -90,6 +96,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  status: {
+    fontSize: 18,
+    fontWeight: 600,
+    letterSpacing: 1,
+    textTransform: "uppercase",
+    color: "#757575", // * Material Grey 600,
+    marginBottom: 24,
   },
   shadow: {
     width: SIZE,
