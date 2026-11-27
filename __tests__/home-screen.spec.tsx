@@ -1,10 +1,11 @@
 import HomeScreen from "@/app/index";
-import { render } from "@testing-library/react-native";
+import { render, screen } from "@testing-library/react-native";
 
 describe("<HomeScreen />", () => {
-  it("renders text correctly on HomeScreen", async () => {
-    const { getByText } = await render(<HomeScreen />);
+  it("shows the timer, ready to start", async () => {
+    await render(<HomeScreen />);
 
-    getByText("Welcome!");
+    expect(screen.getByText("Ready")).toBeOnTheScreen();
+    expect(screen.getByRole("button", { name: "Start" })).toBeOnTheScreen();
   });
 });

@@ -6,7 +6,6 @@ const eslintConfigPrettier = require("eslint-config-prettier/flat");
 module.exports = defineConfig([
   expoConfig,
   eslintConfigPrettier,
-
   {
     ignores: ["dist/*"],
   },
